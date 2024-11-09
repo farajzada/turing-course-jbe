@@ -13,7 +13,7 @@ public class BuildArrayFromPermutationApp {
         }
         return renew;
 
-        //renew
+        //reneww
     }
 
     public static void main(String[] args) {
