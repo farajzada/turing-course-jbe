@@ -12,6 +12,8 @@ public class BuildArrayFromPermutationApp {
             renew[i] = nums[nums[i]];
         }
         return renew;
+
+        //renew
     }
 
     public static void main(String[] args) {
