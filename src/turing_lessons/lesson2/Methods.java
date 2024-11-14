@@ -10,7 +10,7 @@ public class Methods {
     public static void main(String[] args) {
         int result;
 
-        // call the method
+        // call the methodd
         // store returned value to result
         result = square(10);
 
