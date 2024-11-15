@@ -3,15 +3,15 @@ package turing_quizzes.leetcode_problems.scoreOfString;
 public class ScoreOfString {
     public static int scoreOfParentheses(String s) {
         int score = 0;
-        int depth = 0; // mötərizənin cari dərinliyi
+        int depth = 0;
 
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '(') {
-                depth++; // açıq mötərizə dərinliyi artırır
+                depth++;
             } else {
-                depth--; // bağlanış mötərizə dərinliyi azaldır
+                depth--;
                 if (s.charAt(i - 1) == '(') {
-                    score += 1 << depth; // 2^depth skoru əlavə olunur
+                    score += 1 << depth;
                 }
             }
         }
@@ -20,7 +20,7 @@ public class ScoreOfString {
     }
 
     public static void main(String[] args) {
-        String s = "(()(()))"; // test nümunəsi
+        String s = "(()(()))";
         System.out.println("Sətirin skoru: " + scoreOfParentheses(s));
     }
 }
