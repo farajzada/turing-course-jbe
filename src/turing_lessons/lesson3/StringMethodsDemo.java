@@ -23,6 +23,6 @@ public class StringMethodsDemo {
             if(index>-1){
                 System.out.println(index);
             }
-        }while(index> -1-1);
+        }while(true);
     }
 }
