@@ -11,7 +11,7 @@ public class LongestCommonPrefix {
         for (int i = 1; i < strs.length; i++) { // check  prf other strings
             while (strs[i].indexOf(prefix) != 0) { // check prf match main string
                 prefix = prefix.substring(0, prefix.length() - 1);
-                if (prefix.isEmpty()) return "";
+//                if (prefix.isEmpty()) return "";
 
             }
         }
