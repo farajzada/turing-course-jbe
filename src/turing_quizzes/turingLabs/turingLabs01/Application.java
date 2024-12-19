@@ -3,10 +3,11 @@ package turing_quizzes.turingLabs.turingLabs01;
 import java.util.Scanner;
 
 public class Application {
+     public static Movie[] movies = new Movie[0];
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        Movie[] movies = new Movie[0];
+
         while (true) {
             System.out.println("""
                     Please input the number:
@@ -39,7 +40,7 @@ public class Application {
                     break;
                 case 5:
                     System.out.println("Enter the movie you want to find");
-                    findMovie(movies, input.next());
+                    findMovie(movies, input.nextLine());
                     break;
                 case 6:
                     System.out.println("Enter the movie you want to update rating");
@@ -64,25 +65,21 @@ public class Application {
     public static Movie[] addMovies(int n, Movie[] movies) {
         Scanner scanner = new Scanner(System.in);
         Movie[] newMovies = new Movie[n + movies.length];
-        for (int i = 0; i < newMovies.length; i++) {
-            if (i < movies.length) {
-                newMovies[i] = movies[i];
-            } else {
-                System.out.println("Enter movie name:");
-                String movieName = scanner.next();
-                System.out.println("Enter movie rating:");
-                double movieRating = scanner.nextDouble();
-                Movie movie = new Movie(movieName, movieRating);
-                newMovies[i] = movie;
-            }
+        for (int i = movies.length; i < newMovies.length; i++) {
+            System.out.println("Enter movie name: ");
+            String movieName = scanner.next();
+            System.out.println("Enter movie rating: ");
+            double movieRating = scanner.nextDouble();
+            newMovies[i] = new Movie(movieName, movieRating);
         }
         return newMovies;
     }
 
     public static void displayMovies(Movie[] movies) {
         for (int i = 0; i < movies.length; i++) {
-            System.out.println(movies[i].getName() + ":" + movies[i].getRating());
+            System.out.println(movies[i]);
         }
+
     }
 
     public static void calculateStatistics(Movie[] movies) {
@@ -110,7 +107,7 @@ public class Application {
 
     public static int findMovie(Movie[] movies, String name) {
         for (int i = 0; i < movies.length; i++) {
-            if (movies[i].getName().equals(name)) {
+            if (movies[i].getName().equalsIgnoreCase(name)) {
                 System.out.println("Movie found, rating is: " + movies[i].getRating());
                 return i;
             }
@@ -121,20 +118,18 @@ public class Application {
 
     public static void updateRating(Movie[] movies, String name) {
         int index = findMovie(movies, name);
-        if (index >= 0) {
+        if (index != -1) {
             System.out.println("Enter the new rating:   ");
-            {
-                Scanner scanner = new Scanner(System.in);
-                double newRating = scanner.nextDouble();
-                movies[index].setRating(newRating);
-            }
+            Scanner scanner = new Scanner(System.in);
+            double newRating = scanner.nextDouble();
+            movies[index].setRating(newRating);
         }
     }
 
 
     public static Movie[] deleteMovie(Movie[] movies, String name) {
         int index = findMovie(movies, name);
-        if (index >= 0) {
+        if (index != -1) {
             Movie[] newMovies = new Movie[movies.length - 1];
             System.arraycopy(movies, 0, newMovies, 0, index);
             System.arraycopy(movies, index + 1, newMovies, index, movies.length - index - 1);
