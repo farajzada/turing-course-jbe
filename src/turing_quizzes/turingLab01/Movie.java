@@ -1,4 +1,4 @@
-package turing_quizzes.turingLabs.turingLabs01;
+package turing_quizzes.turingLab01;
 
 public class Movie {
     private String name;
