@@ -1,4 +1,4 @@
-package turing_lessons.lesson4;
+package turing_lessons.lesson6;
 
 import java.util.Arrays;
 import java.util.Random;
