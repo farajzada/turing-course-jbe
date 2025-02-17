@@ -1,5 +1,6 @@
 package turing_lessons.lesson7;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.Set;
@@ -7,7 +8,7 @@ import java.util.stream.Stream;
 
 import static java.util.spi.ToolProvider.findFirst;
 
-public class StreamDemo {
+public class StreamDemo implements Serializable {
     public static void main(String[] args) {
         /*int[] arr = {1, 2, 3, 4, 5,6,7,8,9,10};
         for (int j : arr) {
@@ -50,6 +51,7 @@ public class StreamDemo {
 //                .filter(i -> i == 5)
 //                .findFirst()
 //                .ifPresent(i -> System.out.println("Found 5"));
+
 
 
     }
